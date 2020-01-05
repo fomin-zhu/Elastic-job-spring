@@ -143,7 +143,7 @@ public class CsgoBattleJob extends AbsSingleJob {
     protected void process(ShardingContext shardingContext) {
         // 定时任务业务逻辑
     }
-```
 }
+```
 
 elastic-job-lite二次封装核心内容上面已经介绍完，具体代码可以到[github](https://github.com/fomin-zhu/Elastic-job-spring)查看。
