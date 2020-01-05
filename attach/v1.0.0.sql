@@ -1,0 +1,128 @@
+CREATE TABLE `fniao`.`fb_team` (
+  `system_id` INT NOT NULL AUTO_INCREMENT,
+  `team_id` INT NOT NULL,
+  `league_id` INT NOT NULL,
+  `team_name` VARCHAR(100) NULL,
+  `team_name_en` VARCHAR(100) NULL,
+  `team_name_cnt` VARCHAR(100) NULL,
+  `logo` VARCHAR(300) NULL,
+  `found_date` VARCHAR(45) NULL,
+  `address` VARCHAR(200) NULL,
+  `address_en` VARCHAR(200) NULL,
+  `area` VARCHAR(100) NULL,
+  `area_en` VARCHAR(100) NULL,
+  `court` VARCHAR(100) NULL,
+  `court_en` VARCHAR(100) NULL,
+  `court_capacity` INT NULL,
+  `coach` VARCHAR(100) NULL,
+  `coach_en` VARCHAR(100) NULL,
+  `website` VARCHAR(500) NULL,
+  `create_date` TIMESTAMP NULL,
+  `modify_date` TIMESTAMP NULL,
+  PRIMARY KEY (`system_id`));
+
+alter table fniao.fb_team add unique key(team_id);
+
+CREATE TABLE `fniao`.`fb_player` (
+  `system_id` INT NOT NULL AUTO_INCREMENT,
+  `player_id` INT NOT NULL,
+  `team_id` INT NOT NULL,
+  `player_name` VARCHAR(100) NULL,
+  `player_name_cnt` VARCHAR(100) NULL,
+  `player_name_en` VARCHAR(100) NULL,
+  `birthday` VARCHAR(45) NULL,
+  `height` VARCHAR(45) NULL,
+  `weight` VARCHAR(45) NULL,
+  `nationality` VARCHAR(45) NULL,
+  `nationality_en` VARCHAR(45) NULL,
+  `photo_url` VARCHAR(200) NULL,
+  `social_status` VARCHAR(45) NULL,
+  `use_foot` VARCHAR(45) NULL,
+  `use_foot_en` VARCHAR(45) NULL,
+  `summary` VARCHAR(1000) NULL,
+  `summary_en` VARCHAR(1000) NULL,
+  `court_position` VARCHAR(45) NULL,
+  `court_position_en` VARCHAR(45) NULL,
+  `shirt_number` VARCHAR(45) NULL,
+  `end_time_contract` VARCHAR(45) NULL,
+  `create_date` TIMESTAMP NULL,
+  `modify_date` TIMESTAMP NULL,
+  PRIMARY KEY (`system_id`);
+
+alter table fb_player add index team_id(team_id);
+
+CREATE TABLE `fniao`.`fb_country` (
+  `system_id` INT NOT NULL AUTO_INCREMENT,
+  `country_id` INT NOT NULL,
+  `country_name` VARCHAR(100) NULL,
+  `country_name_en` VARCHAR(100) NULL,
+  `country_name_cnt` VARCHAR(100) NULL,
+  `logo` VARCHAR(200) NULL,
+  `create_date` TIMESTAMP NULL,
+  `modify_date` TIMESTAMP NULL,
+  PRIMARY KEY (`system_id`),
+  UNIQUE INDEX `country_id_UNIQUE` (`country_id` ASC) VISIBLE);
+
+CREATE TABLE `fniao`.`fb_league` (
+  `system_id` INT NOT NULL AUTO_INCREMENT,
+  `league_id` INT NOT NULL,
+  `league_name` VARCHAR(100) NULL,
+  `league_name_en` VARCHAR(100) NULL,
+  `league_name_cnt` VARCHAR(100) NULL,
+  `short_name` VARCHAR(45) NULL,
+  `short_name_en` VARCHAR(45) NULL,
+  `short_name_cnt` VARCHAR(45) NULL,
+  `logo` VARCHAR(200) NULL,
+  `color` VARCHAR(45) NULL,
+  `league_type` SMALLINT NULL,
+  `sub_league_name` VARCHAR(100) NULL,
+  `sub_league_name_en` VARCHAR(100) NULL,
+  `total_round` INT NULL,
+  `current_round` INT NULL,
+  `current_season` VARCHAR(45) NULL,
+  `country_id` INT NULL,
+  `area_type` SMALLINT NULL,
+  `create_date` TIMESTAMP NULL,
+  `modify_date` TIMESTAMP NULL,
+  PRIMARY KEY (`system_id`),
+  UNIQUE INDEX `league_id_UNIQUE` (`league_id` ASC) VISIBLE);
+
+CREATE TABLE `fniao`.`fb_sub_league` (
+  `system_id` INT NOT NULL AUTO_INCREMENT,
+  `league_id` INT NOT NULL,
+  `sub_league_id` INT NOT NULL,
+  `sub_name` VARCHAR(100) NULL,
+  `sub_name_cnt` VARCHAR(100) NULL,
+  `sub_name_en` VARCHAR(100) NULL,
+  `serial_number` INT NULL,
+  `total_round` INT NULL,
+  `current_round` INT NULL,
+  `current_season` VARCHAR(200) NULL,
+  `has_point` TINYINT NULL,
+  `include_season` VARCHAR(500) NULL,
+  `current_sub` TINYINT NULL,
+  `branch_game` TINYINT NULL,
+  `create_date` TIMESTAMP NULL,
+  `modify_date` TIMESTAMP NULL,
+  PRIMARY KEY (`system_id`),
+  UNIQUE INDEX `sub_league_id_UNIQUE` (`sub_league_id` ASC) VISIBLE);
+
+  CREATE TABLE `fniao`.`fb_referee` (
+  `system_id` INT NOT NULL AUTO_INCREMENT,
+  `referee_id` INT NOT NULL,
+  `match_id` INT NOT NULL,
+  `referee_type` SMALLINT NULL,
+  `referee_name` VARCHAR(100) NULL,
+  `referee_name_en` VARCHAR(100) NULL,
+  `referee_name_cnt` VARCHAR(100) NULL,
+  `birthday` VARCHAR(45) NULL,
+  `country` VARCHAR(100) NULL,
+  `country_en` VARCHAR(100) NULL,
+  `country_cnt` VARCHAR(100) NULL,
+  `photo_url` VARCHAR(200) NULL,
+  `create_date` TIMESTAMP NULL,
+  `modify_date` TIMESTAMP NULL,
+  PRIMARY KEY (`system_id`);
+
+
+

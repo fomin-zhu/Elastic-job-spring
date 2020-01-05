@@ -1,0 +1,24 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: fw-egame-schedule-server
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+
+elastic-job:
+  zk:
+    namespace: "ds-schedule-server-elastic-job"
+    serverLists: "127.0.0.1:2181"
+    baseSleepTimeMilliseconds: 1000
+    maxSleepTimeMilliseconds: 3000
+    maxRetries: 3
+    sessionTimeoutMilliseconds: 0
+    connectionTimeoutMilliseconds: 0
+debug: true
